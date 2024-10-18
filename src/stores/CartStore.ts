@@ -11,7 +11,8 @@ export const useCartStore = defineStore('cart-store',{
         addItem(book: Book){
             this.data.push(book)
         },
-        removeItem(){
+        removeItem(book: Book){
+            this.data = this.data.filter((item) => item.id !== book.id);
         },
         getAllItems(): Book[] {
             return this.data

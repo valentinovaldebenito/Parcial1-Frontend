@@ -5,6 +5,10 @@ const cartStore = useCartStore();
 
 const books: Book[] = cartStore.getAllItems()
 
+function eliminarItem(book: Book){
+    cartStore.removeItem(book)
+}
+
 console.log(books)
 </script>
 
@@ -17,7 +21,7 @@ console.log(books)
                 <span class="text-sm">{{ book.title }}</span>
             </div>
             <div class="w-2/12">
-                <button></button>
+                <button v-on:click="eliminarItem(book)">Eliminar</button>
             </div>
         </div>
         <div>
